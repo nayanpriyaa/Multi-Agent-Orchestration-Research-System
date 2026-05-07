@@ -125,3 +125,229 @@ Uses Neo4j to:
                          │ Memory Layer     │
                          │ (FAISS + Logs)   │
                          └──────────────────┘
+
+# 📁 Project Structure
+
+```text
+mao_project/
+│
+├── app/
+│   ├── main.py
+│   ├── config.py
+│   │
+│   ├── orchestrator/
+│   │   └── orchestrator.py
+│   │
+│   ├── agents/
+│   │   ├── base_agent.py
+│   │   ├── search_agent.py
+│   │   ├── reader_agent.py
+│   │   ├── writer_agent.py
+│   │   └── critic_agent.py
+│   │
+│   ├── tools/
+│   │   ├── search_tool.py
+│   │   └── scraper_tool.py
+│   │
+│   ├── memory/
+│   │   ├── vector_store.py
+│   │   └── memory_manager.py
+│   │
+│   ├── services/
+│   │   └── llm_service.py
+│   │
+│   ├── schemas/
+│   │   │── message_schema.py
+│   │
+│   │── utils/
+│   │    └── logger.py
+│
+├── frontend/
+│   └── streamlit_app.py
+│
+├── tests/
+│   ├── test_llm.py
+│   └── test_agents.py
+│
+├── requirements.txt
+├── .env
+├── .gitignore
+└── README.md
+```
+
+---
+
+# Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Backend | Python, FastAPI |
+| AI Framework | LangChain |
+| LLM Runtime | Ollama |
+| Models | Mistral, LLaMA |
+| Communication | Redis Pub/Sub |
+| Graph Database | Neo4j |
+| Vector Database | FAISS / Chroma |
+| Web Scraping | BeautifulSoup |
+| Frontend | Streamlit |
+| APIs | Tavily Search API |
+
+---
+
+# Core Computer Science Concepts
+
+## Operating Systems
+- process coordination
+- asynchronous execution
+- resource management
+
+## Distributed Systems
+- message queues
+- event-driven communication
+- decentralized workflows
+
+## DBMS
+- graph databases
+- vector indexing
+- semantic retrieval systems
+
+## Networking
+- HTTP APIs
+- protocol-based communication
+- client-server architecture
+
+## Software Engineering
+- modular architecture
+- abstraction layers
+- scalable system design
+- design patterns
+
+## Artificial Intelligence
+- LLM orchestration
+- autonomous agents
+- memory-augmented AI
+- retrieval-augmented generation (RAG)
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/your-username/Multi-Agent-Orchestration-Research-System.git
+
+cd Multi-Agent-Orchestration-Research-System
+```
+
+---
+
+## 2. Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+#### Windows
+```bash
+venv\Scripts\activate
+```
+
+#### Linux / Mac
+```bash
+source venv/bin/activate
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4. Install Ollama
+
+Download:
+https://ollama.com/download
+
+---
+
+## 5. Pull Local Model
+
+```bash
+ollama pull mistral
+```
+
+---
+
+## 6. Configure Environment Variables
+
+Create `.env`
+
+```env
+MODEL_PROVIDER=ollama
+MODEL_NAME=mistral
+
+TAVILY_API_KEY=your_key_here
+
+GRAPH_DB_PASSWORD=password
+
+REDIS_HOST=localhost
+REDIS_PORT=6379
+```
+
+---
+
+# Running the Project
+
+## Start FastAPI Server
+
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+## Run Streamlit Frontend
+
+```bash
+streamlit run frontend/streamlit_app.py
+```
+
+---
+
+# Example Workflow
+
+Input:
+```text
+Analyze electric vehicle adoption trends in India
+```
+
+System Flow:
+1. Search Agent retrieves sources
+2. Reader Agent extracts webpage content
+3. Writer Agent generates report
+4. Critic Agent evaluates output
+5. Memory Layer stores insights
+
+---
+
+# Future Enhancements
+
+- Full MCP protocol support
+- Agent reputation system
+- Multi-modal agents
+- Kubernetes deployment
+- Real-time monitoring dashboard
+- Autonomous planning engine
+
+---
+
+# License
+
+MIT License
